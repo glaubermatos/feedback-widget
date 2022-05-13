@@ -6,7 +6,7 @@
 
   <img alt="Node.js version" src="https://img.shields.io/badge/Node.js-v16.15.0-689f63?style=flat&logoColor=689f63&logo=node.js">
   
-  <img alt="TypeScript version" src="https://img.shields.io/badge/TypeScript-v4.3.2-007acc?style=flat&logoColor=007acc&logo=typescript">
+  <img alt="TypeScript version" src="https://img.shields.io/badge/TypeScript-v4.6.3-007acc?style=flat&logoColor=007acc&logo=typescript">
   
   <img alt="React.js version" src="https://img.shields.io/badge/React.js-v18.0.0-60dafb?style=flat&logoColor=60dafb&logo=react">
 
@@ -47,18 +47,18 @@
 <a name="-sobre-o-projeto"></a>
 
 ## 📚 Sobre o projeto
+
+
+#### 👉 Projeto Fullstack ReactJS + NodeJS
 <br>
 
+Projeto fullstack desenvolvido durante a trilha impulse da 8° edição da Next Level Week da Rocketseat.
 
-### 👉 Projeto Fullstack ReactJS + NodeJS
+Aplicação front-end desenvolvida com ReactJS consiste em um widget para coleta de feedbacks dos usuários, permitindo tirar uma screenshot da tela.
 
-Aplicação consiste em um widget para coleta de feedbacks dos usuários, podendo ser adicionado em qualquer projeto web. 
+O back-end desenvolvido em NodeJS recebe os dados do feedback do usuário e salva em um banco de dados PostgreSQL e envia um email para o administrador do site.
 
-O Feedback-widget tira um print da tela salva em uma base de dados e envia um email para o administrador do ambiente contendo os dados do feedback coletado.
-
-Este projeto foi desenvolvido durante a Next Level Week 8º edição trilha impulse, organizado pela Rocketseat.
-
-### 🎓 Instrutor
+#### 🎓 Instrutor
 - ReactJS + NodeJS - [Diego Fernandes](https://www.linkedin.com/in/diego-schell-fernandes/)
 
 <br>
@@ -79,7 +79,7 @@ Para conferir o resultado só clicar no link abaixo:
 
 - ✔️ Envio de feedbacks (Problemas, Idéias, Outro)
 - ✔️ Capturar screenshot do usuário com html2canvas
-- ✔️ Uso do MailTrap para o envio de e-mails em ambiente de desenvolvimento
+- ✔️ Uso do MailTrap para o envio de e-mails
 
 <br>
 
@@ -115,6 +115,7 @@ Você pode visualizar o layout do projeto através do link abaixo, é preciso te
 
 - ✔️ Tema light e dark (de acordo com as preferências do usuário)
 - ✔️ README.md
+- [ ] Validação do formulário
 - [ ] Dashboard para visualizar todos os feedbacks
 - [ ] Autenticação para acesso ao Dashboard
 - [ ] Envio do email com Mailchimp ou outro
@@ -140,8 +141,7 @@ Você pode visualizar o layout do projeto através do link abaixo, é preciso te
   - [Jest](https://jestjs.io/) - (Testes unitários)
   - [nodemailer](https://nodemailer.com/) - (Módulo para NodeJS que facilita o envio de email)
   - [SQlite](https://www.sqlite.org/) (Banco de dados para ambiente de desenvolvimento)
-
-  nodemailer
+  - [PostgreSQL](https://www.postgresql.org/) - (Banco de dados em produção)
 
   <br>
 
@@ -157,6 +157,7 @@ Você pode visualizar o layout do projeto através do link abaixo, é preciso te
   - **[ReactJS](https://reactjs.org/)**
   - **[TypeScript](https://www.typescriptlang.org/)**
   - **[Tailwindcss](https://tailwindcss.com/)** - (Estilização)
+  - [Phosphor React](https://phosphoricons.com/) - (Ícones)
   - [Axios](https://github.com/axios/axios) - (Requisições HTTP)
   - [Headless-ui](https://headlessui.dev/) - (Popover com acessibilidade)
   - [Html2Canvas](https://html2canvas.hertzen.com/) - (Screenshot da tela)
@@ -172,7 +173,7 @@ Você pode visualizar o layout do projeto através do link abaixo, é preciso te
 
 - Editor: **[Visual Studio Code](https://code.visualstudio.com/)**
 - Teste de API: **[Insomnia](https://insomnia.rest/)**
-- Ícones: **[Phosphor React](https://phosphoricons.com/)**
+- Sandbox para envio de e-mails: **[MailTrap](https://mailtrap.io/)** 
 
 <br>
 
@@ -198,6 +199,12 @@ Você pode visualizar o layout do projeto através do link abaixo, é preciso te
 
 ## 🚀 Como executar o projeto
 
+### **Pré-requisitos**
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [NodeJS](https://nodejs.org/en/), [NPM](https://www.npmjs.com/).
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
+
 Primeiro faça o clone do projeto
 
 ```bash
@@ -205,34 +212,12 @@ Primeiro faça o clone do projeto
 $ git clone https://github.com/glaubermatos/feedback-widget.git
 ```
 
-### **Pré-requisitos**
-
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [NodeJS](https://nodejs.org/en/), [NPM](https://www.npmjs.com/).
-Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
-
-❗ **NOTE** O back-end precisa estar rodando para que o projeto web possa enviar os dados do feedback.
 
 <br>
 
-#### 🤖 **Para executar o back-end (server)**
+### 🤖 **Para executar o back-end (server)**
 
-```bash
-# Acesse a pasta do projeto no seu terminal/cmd
-$ cd feedback-widget/server
-
-# Instale as dependências
-$ npm install
-
-# Execute a aplicação em modo de desenvolvimento
-$ npm run dev
-
-# O servidor estará executando na porta:3333
-```
-
-<br>
-
-#### 🌐 Variáveis de ambiente do back-end
+#### 👉 Variáveis de ambiente do back-end
 
 Necessário para configurar o sqlite em ambiente de desenvolvimento
 
@@ -242,9 +227,52 @@ Necessário para configurar o sqlite em ambiente de desenvolvimento
 $ cp .env.example .env
 ```
 
+```bash
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd feedback-widget/server
+
+# Instale as dependências
+$ npm install
+
+# Execute o prisma migrate para criar e aplicar as migrations no banco de dados
+$ npx prisma migrate dev
+
+# Execute a aplicação em modo de desenvolvimento
+$ npm run dev
+
+# O servidor estará executando na porta:3333
+```
+
+Use o [Insomnia](https://insomnia.rest/) para testar a rota de cadastro passando um objeto JSON contendo os dados do feedback.
+
+> POST http://localhost:3333/feedbacks
+
+```JSON
+{
+  "type": "BUG",
+  "comment": "Ta tudo bugado!"
+}
+```
+
 <br>
 
-#### 💻 **Para executar o front-end (web)**
+### 💻 **Para executar o front-end (web)**
+
+<br>
+
+
+❗ **NOTE** O back-end precisa estar rodando para que o projeto web possa enviar os dados do feedback.
+<br>
+
+#### 👉 Variáveis de ambiente do front-end
+
+Necessário para configurar o endereço do backend para o axios realizar a requisição HTTP.
+
+```bash
+
+# Faça uma cópia do arquivo .env.local.example para a raiz do projeto web renomeando para .env.local (este por sua vez será ignorado pelo Git):
+$ cp .env.local.example .env.local
+```
 
 ```bash
 # Acesse a pasta do projeto no seu terminal/cmd
@@ -259,17 +287,6 @@ $ npm run dev
 # O front-end web estará executando no endereço http://localhost:3000
 ```
 
-<br>
-
-#### 🌐 Variáveis de ambiente do front-end
-
-Necessário para configurar o endereço do backend para o axios realizar a requisição HTTP.
-
-```bash
-
-# Faça uma cópia do arquivo .env.local.example para a raiz do projeto web renomeando para .env.local (este por sua vez será ignorado pelo Git):
-$ cp .env.local.example .env.local
-```
 
 
 <br>
@@ -307,5 +324,3 @@ Este projeto esta sobe a licença [MIT](./LICENSE).
 Feito com :satisfied: por Glauber de Oliveira Matos 👋🏽 [Entre em contato!](https://www.linkedin.com/in/glaubermatos/)
 
 <br>
-
----
